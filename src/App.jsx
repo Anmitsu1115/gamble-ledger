@@ -639,8 +639,8 @@ const fontImports = `
 `;
 
 const styles = {
-  app: { minHeight: "100vh", background: "#f3efe7", fontFamily: "'Noto Sans JP', sans-serif", color: "#3a3027", paddingBottom: 32 },
-  header: { background: "linear-gradient(180deg, #2f2a23 0%, #463c30 100%)", color: "#f3efe7", padding: "20px 18px 22px", borderBottomLeftRadius: 18, borderBottomRightRadius: 18 },
+  app: { minHeight: "100vh", background: "#f3efe7", fontFamily: "'Noto Sans JP', sans-serif", color: "#3a3027", paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 32px)" },
+  header: { background: "linear-gradient(180deg, #2f2a23 0%, #463c30 100%)", color: "#f3efe7", padding: "20px 18px 22px", paddingTop: "calc(env(safe-area-inset-top, 0px) + 20px)", borderBottomLeftRadius: 18, borderBottomRightRadius: 18 },
   headerTop: { display: "flex", alignItems: "center", gap: 10, marginBottom: 14 },
   brandMark: { fontFamily: "'Shippori Mincho', serif", fontSize: 20, fontWeight: 700, background: "#c9a86a", color: "#2f2a23", width: 28, height: 28, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
   brandName: { fontFamily: "'Shippori Mincho', serif", fontSize: 17, fontWeight: 700, letterSpacing: "0.02em", flex: 1 },
@@ -666,7 +666,7 @@ const styles = {
   dayCount: { position: "absolute", top: 2, right: 3, fontSize: 8, color: "#b8ab94", fontWeight: 700 },
   saveIndicator: { textAlign: "center", fontSize: 11, color: "#a89c87", marginTop: 14 },
   overlay: { position: "fixed", inset: 0, background: "rgba(40,33,24,0.45)", display: "flex", alignItems: "flex-end", justifyContent: "center", zIndex: 50 },
-  modal: { background: "#fdfaf5", width: "100%", maxWidth: 480, maxHeight: "88vh", overflowY: "auto", borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: "18px 20px 28px", boxSizing: "border-box" },
+  modal: { background: "#fdfaf5", width: "100%", maxWidth: 480, maxHeight: "88vh", overflowY: "auto", borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: "18px 20px 28px", paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 28px)", boxSizing: "border-box" },
   modalHeader: { display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 },
   modalDate: { fontFamily: "'Shippori Mincho', serif", fontSize: 16, fontWeight: 700, color: "#3a3027" },
   iconBtn: { background: "transparent", border: "none", color: "#7f7368", cursor: "pointer", padding: 4 },

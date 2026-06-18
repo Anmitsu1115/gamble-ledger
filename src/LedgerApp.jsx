@@ -80,7 +80,7 @@ function dayTotal(records) {
 
 // ---------- Main App ----------
 export default function GambleLedger({ user, onSignOut, signingOut }) {
-  const uid = user.uid;
+  const currentUid = user.uid;
   const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
   const [activeCat, setActiveCat] = useState(DEFAULT_CATEGORIES[0].id);
   // entries: { catId: { "YYYY-MM-DD": [record, record, ...] } }
@@ -100,7 +100,7 @@ export default function GambleLedger({ user, onSignOut, signingOut }) {
   // Load once
   useEffect(() => {
     (async () => {
-      const data = await loadData(uid);
+      const data = await loadData(currentUid);
       if (data) {
         if (data.categories && data.categories.length) setCategories(data.categories);
         if (data.entries) setEntries(data.entries);
@@ -109,18 +109,18 @@ export default function GambleLedger({ user, onSignOut, signingOut }) {
       }
       setLoaded(true);
     })();
-  }, [uid]);
+  }, [currentUid]);
 
   // Persist on change
   useEffect(() => {
     if (!loaded) return;
     setSaveState("saving");
     const t = setTimeout(async () => {
-      await saveData(uid, { categories, entries, history, activeCat });
+      await saveData(currentUid, { categories, entries, history, activeCat });
       setSaveState("saved");
     }, 600);
     return () => clearTimeout(t);
-  }, [categories, entries, history, activeCat, loaded, uid]);
+  }, [categories, entries, history, activeCat, loaded, currentUid]);
 
   const year = viewDate.getFullYear();
   const month = viewDate.getMonth();
